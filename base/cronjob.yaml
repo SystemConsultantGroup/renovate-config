@@ -9,7 +9,7 @@ spec:
       template:
         spec:
           containers:
-            - name: renovate
+            - name: renovate-github
               image: renovate/renovate:latest
               args:
                 - "--config-file=/opt/renovate/config.json"
