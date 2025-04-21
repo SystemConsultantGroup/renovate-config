@@ -1,8 +1,8 @@
 {
     "platform": "github",
-    "dryRun": "full",
+    "dryRun": null,
     "repositories": [
-      "SystemConsultantGroup/S-top-backend"
+      "2tle/SurvirunAPI"
     ],
     "extends": ["config:base"],
     "dependencyDashboard": true,
