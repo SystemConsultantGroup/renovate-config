@@ -3,6 +3,7 @@
     "dryRun": "full",
     "repositories": [
       "SystemConsultantGroup/S-top-backend"
-    ]
+    ],
+    "extends": ["config:base"],
+    "dependencyDashboard": true,
 }
-  
