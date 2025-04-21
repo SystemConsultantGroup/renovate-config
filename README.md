@@ -1,0 +1,2 @@
+# Renovate Config
+Renovate ArgoCD

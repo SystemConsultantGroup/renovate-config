@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: renovate-bot
+spec:
+  schedule: "20 18 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: renovate
+              image: renovate/renovate:latest
+              args:
+                - "--config-file=/opt/renovate/config.json"
+              volumeMounts:
+                - name: config
+                  mountPath: /opt/renovate/config.json
+                  subPath: config.json
+                - name: work
+                  mountPath: '/tmp/renovate/'
+              envFrom:
+                - secretRef:
+                    name: renovate-secret
+          restartPolicy: Never
+          volumes:
+            - name: config
+              configMap:
+                name: renovate-config
+            - name: work
+              emptyDir: {}
