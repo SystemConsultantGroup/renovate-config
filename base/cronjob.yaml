@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: renovate-github
 spec:
-  schedule: "50 * * * *"
+  schedule: "0 20 * * 0"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -12,8 +12,6 @@ spec:
           containers:
             - name: renovate-github
               image: renovate/renovate:latest
-              args:
-                - "--config-file=/opt/renovate/config.json"
               volumeMounts:
                 - name: config
                   mountPath: /opt/renovate/config.json
@@ -22,7 +20,7 @@ spec:
                   mountPath: '/tmp/renovate/'
               env:
                 - name: LOG_LEVEL
-                  value: debug
+                  value: info
               envFrom:
                 - secretRef:
                     name: renovate-secret
