@@ -1,9 +1,16 @@
 {
     "platform": "github",
     "dryRun": null,
-    "repositories": [
-      "2tle/SurvirunAPI"
-    ],
     "extends": ["config:base"],
     "dependencyDashboard": true,
+    "prConcurrentLimit": 1,
+    "packageRules": [
+        {
+            "matchPackagePatterns": [".*"],
+            "groupName": "all-updates"
+        }
+    ],
+    "repositories": [
+        "2tle/SurvirunAPI"
+    ]
 }
