@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: renovate-github
 spec:
-  schedule: "20 18 * * *"
+  schedule: "20 * * * *"
   jobTemplate:
     spec:
       template:
