@@ -1,14 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: renovate-github
-resources:
-  - ../../base
-  - secret.yaml
-
 configMapGenerator:
   - name: renovate-config
     files:
       - config.json
+resources:
+  - ../../base
+  - secret.yaml
 
 generatorOptions:
   disableNameSuffixHash: true
